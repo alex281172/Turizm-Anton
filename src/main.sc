@@ -3,15 +3,15 @@ require: requirements.sc
 
 init:
 #задаем правило обработки интентов и паттернов
-    # bind("selectNLUResult", function($context) {
+     bind("selectNLUResult", function($context) {
     #     //если есть совпадение по интенту - используем интент
-    #     if ($context.nluResults.intents.length > 0) {
-    #         $context.nluResults.selected = $context.nluResults.intents[0];
-    #         return;
-    #     }
+         if ($context.nluResults.intents.length > 0) {
+             $context.nluResults.selected = $context.nluResults.intents[0];
+             return;
+         }
     #     //если нет совпадений по интенту - используем паттерн
-    #     if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
-    # });
+         if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
+     });
 
 #========================================= СТАРТ И ГЛОБАЛЬНЫЕ ИНТЕНТЫ ==================================================
 theme: /  
@@ -21,7 +21,7 @@ theme: /
         q!: *start                                  
         q!: * Мария *
         # intent: /Приветствие
-        q: * привет *
+        q: $greeting
         script: $session = {}      //обнулили переменные сессии
         #проверяем есть ли имя клиента, представляемся соотв.образом и идем в Меню или Имя
         if: $client.name
@@ -34,18 +34,24 @@ theme: /
     #глобальный ответ на нераспознанные реплики, контекст не меняется
     state: CatchAll || noContext = true 
         event!: noMatch
-        a: Простите, я не поняла. Попробуйте сказать по-другому.
+#        a: Простите, я не поняла. Попробуйте сказать по-другому.
+        random:
+            a: Простите, я Вас не поняла. 
+            a: Извините, я Вас не понимаю. Вы сказали: {{$request.query}}.
+        random:
+            a: Попробуйте ответить по-другому.
+            a: Переформулируйте, пожалуйста, свой вопрос.
 
     #глобальный ответ на прощание
     state: Bye || noContext = true 
         # intent!: /Прощание
-        q: * до свидания *
+        q: $goodbye
         a: Всего доброго!
 
     #глобальный стейт отказа или отмены
     state: Cancel
         # intent!: /Отказ
-        q!: ( * (не надо)/(не хочу)/(не буду) * )
+        q!: $refuse
         q!: ( (* выход* *)/(* стоп *) )
         a: Поняла, выхожу из диалога.
         go!: /Exit
@@ -78,14 +84,14 @@ theme: /Name
         #не хочу знакомиться - соглашаемся и идем в меню
         state: NoName
             # intent: /Отказ
-            q: * нет *
+            q: $refuse
             q: ( * (не надо)/(не хочу)/(не буду) * )
             a: Как вам будет удобно. Обойдемся без знакомства.
             go!: /Menu/Begin
         #выход из модального стейта при запросе погоды
         state: GoWeather
-            # intent: /Погода
-            q: * (~погода) *
+             intent: /Погода
+#            q: $weather
             go!: /Weather/Begin
         #другое непонятное слово - уточняем имя это или нет
         state: GetStrangeName
@@ -98,14 +104,14 @@ theme: /Name
             #если имя - сохраняем его и идем в Меню
             state: Yes
                 # intent: /Да
-                q: * Да *
+                q: $yes
                 script: $client.name = $session.tempName;
                 a: {{$client.name}}, приятно познакомиться!
                 go!: /Menu/Begin
             #если не имя - соглашаемся не знакомиться и идем в Меню
             state: No
                 # intent: /Нет
-                q: * Нет *
+                q: $no
                 a: Как вам будет удобно. Обойдемся без знакомства.
                 go!: /Menu/Begin
                 
@@ -126,26 +132,27 @@ theme: /Menu
         #интент Что еще умеешь - идем в начало выбора       
         state: WhatElse
             # intent: /Что еще
-            q: * что еще *
+            q: $whatelse
             a: Я больше ничего не умею. Только рассказывать о погоде и оформлять заявку на тур.
             go!: /Menu/Choose
         #интент Отказ - идем на выход
         state: Deny
             # intent: /Отказ
-            q: (* (не надо)/(ничего)/(не хочу) *)
+            q: $refuse
+            q: ( * (не надо)/(не хочу)/(не буду) * )
             # intent: /Нет
-            q: * нет *
+            q: $no
             a: Как скажете.
             go!: /Exit
         #интент Прогноз погоды    
         state: Weather
-            # intent: /Погода
-            q: * (~погода) *
+             intent: /Погода
+#            q: $weather
             go!: /Weather/Begin
         #интент Оформить заявку
         state: Tour
             # intent: /Тур
-            q: * (~заявка) *
+            q: $tour
             q: * (~тур) *
             a: В какой город или страну хотите поехать?
             buttons:
@@ -162,7 +169,7 @@ theme: /Menu
             #не решил или нужна консультация - идем на начало Заявки
             state: NoSure
                 # intent: /Незнаю
-                q: * ~консультация *
+                q: $dontknow
                 a: Не проблема. Заполним заявку, а менеджер поможет Вам выбрать направление
                 go!: /Trip/Begin
             #все остальные ответы    
@@ -173,7 +180,7 @@ theme: /Menu
                 
     #интент город/страна
     state: Location 
-        # q: * $City * 
+        q: * $City * 
         q: * $Country * 
         #запоминаем город или страну и их координаты
         script: getLocation ($parseTree)
@@ -187,6 +194,7 @@ theme: /Menu
         #интент отказ - предлаагаем варианты и идем в меню
         state: Deny
             # intent: /Отказ
+            q: $refuse
             q: ( * (не надо)/(не хочу)/(не буду) * )
             a: Хотите, оформим заявку на подбор тура? Или посмотрим погоду в другом месте.
             go!: /Menu/Choose

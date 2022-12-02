@@ -6462,7 +6462,7 @@
 6462;Вагоноремонт;{"name":"Вагоноремонт","lat":55.9,"lon":37.55,"country":"RU","timezone":"Europe/Moscow","population":50000,"capital":"false","continent":"Europe"}
 6463;Узловая;{"name":"Узловая","lat":53.98179,"lon":38.17118,"country":"RU","timezone":"Europe/Moscow","population":58458,"capital":"false","continent":"Europe"}
 6464;Урицк;{"name":"Урицк","lat":59.83889,"lon":30.17528,"country":"RU","timezone":"Europe/Moscow","population":55037,"capital":"false","continent":"Europe"}
-6465;Ульяновск,Синбирск;{"name":"Ульяновск","lat":54.32824,"lon":48.38657,"country":"RU","timezone":"Europe/Ulyanovsk","population":640680,"capital":"false","continent":"Europe"}
+6465;Ульяновск,Симбирск;{"name":"Ульяновск","lat":54.32824,"lon":48.38657,"country":"RU","timezone":"Europe/Ulyanovsk","population":640680,"capital":"false","continent":"Europe"}
 6466;Ухта;{"name":"Ухта","lat":63.56705,"lon":53.68348,"country":"RU","timezone":"Europe/Moscow","population":102187,"capital":"false","continent":"Europe"}
 6467;Уфа;{"name":"Уфа","lat":54.74306,"lon":55.96779,"country":"RU","timezone":"Asia/Yekaterinburg","population":1033338,"capital":"false","continent":"Asia"}
 6468;Тверь,Калинин;{"name":"Тверь","lat":56.85836,"lon":35.90057,"country":"RU","timezone":"Europe/Moscow","population":400212,"capital":"false","continent":"Europe"}

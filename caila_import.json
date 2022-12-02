@@ -11,7 +11,44 @@
     "timezone" : "UTC",
     "shared" : false
   },
-  "intents" : [ ],
+  "intents" : [ {
+    "path" : "/Погода",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "какая погода"
+    }, {
+      "text" : "какая погодка"
+    }, {
+      "text" : "расскажи о погоде"
+    }, {
+      "text" : "узнать погоду"
+    }, {
+      "text" : "что о погоде"
+    }, {
+      "text" : "какой прогноз погоды"
+    }, {
+      "text" : "какой прогноз"
+    }, {
+      "text" : "погода в"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "~прогноз", "~погода" ],
+    "slots" : [ {
+      "name" : "Geo",
+      "entity" : "mystem.geo",
+      "required" : false,
+      "prompts" : [ ]
+    }, {
+      "name" : "Date",
+      "entity" : "duckling.date",
+      "required" : false,
+      "prompts" : [ ]
+    } ],
+    "priority" : 0
+  } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "mystem.geo", "duckling.number", "duckling.date" ],
   "spellerDictionary" : [ ],
