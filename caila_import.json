@@ -1,0 +1,536 @@
+{
+  "project" : {
+    "id" : "just_tour_v2-1000048259-kHP",
+    "name" : "just_tour_v2-1000048259-kHP",
+    "folder" : "/jaicp"
+  },
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "UTC",
+    "shared" : false
+  },
+  "intents" : [ {
+    "path" : "/Прощание",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "До свидания"
+    }, {
+      "text" : "Всего доброго"
+    }, {
+      "text" : "Всего хорошего"
+    }, {
+      "text" : "Покеда"
+    }, {
+      "text" : "До встреч"
+    }, {
+      "text" : "до завтра"
+    }, {
+      "text" : "досвидания"
+    }, {
+      "text" : "гудбай"
+    }, {
+      "text" : "пока"
+    } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "classRule_1246",
+        "predicate" : "CONTAINS_NOT"
+      }, {
+        "entityName" : "classRule_7228",
+        "predicate" : "CONTAINS_NOT"
+      } ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Тур",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "оформить заявку на тур"
+    }, {
+      "text" : "подать заявку"
+    }, {
+      "text" : "путешествие"
+    }, {
+      "text" : "турфирма"
+    }, {
+      "text" : "агенство"
+    }, {
+      "text" : "турагенство"
+    }, {
+      "text" : "заявочка"
+    }, {
+      "text" : "заявка"
+    }, {
+      "text" : "путевка"
+    }, {
+      "text" : "оформи"
+    }, {
+      "text" : "оформляй"
+    }, {
+      "text" : "оформим"
+    }, {
+      "text" : "прими"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Приветствие",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Привет"
+    }, {
+      "text" : "здравствуйте"
+    }, {
+      "text" : "хай"
+    }, {
+      "text" : "hi"
+    }, {
+      "text" : "здорово"
+    }, {
+      "text" : "приветик"
+    }, {
+      "text" : "здравствуй"
+    }, {
+      "text" : "мир тебе"
+    }, {
+      "text" : "добрый день"
+    }, {
+      "text" : "добрый вечер"
+    }, {
+      "text" : "доброе утро"
+    }, {
+      "text" : "драсте"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Незнаю",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Не знаю"
+    }, {
+      "text" : "не решил"
+    }, {
+      "text" : "не выбрал"
+    }, {
+      "text" : "не определился"
+    }, {
+      "text" : "потом решу"
+    }, {
+      "text" : "пока не знаю"
+    }, {
+      "text" : "пока не решил"
+    }, {
+      "text" : "нет пока"
+    }, {
+      "text" : "пока не выбрал"
+    }, {
+      "text" : "не помню"
+    }, {
+      "text" : "еще не знаю"
+    }, {
+      "text" : "еще не решил"
+    }, {
+      "text" : "нет еще"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Что еще",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "А что еще"
+    }, {
+      "text" : "Что еще умеешь"
+    }, {
+      "text" : "другое"
+    }, {
+      "text" : "что-то другое"
+    }, {
+      "text" : "что-нибудь еще"
+    }, {
+      "text" : "что-то умеешь еще"
+    }, {
+      "text" : "а еще"
+    } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "classRule_4573",
+        "predicate" : "CONTAINS_NOT"
+      } ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Погода",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "погода в"
+    }, {
+      "text" : "погодка"
+    }, {
+      "text" : "узнать погоду"
+    }, {
+      "text" : "узнать прогноз"
+    }, {
+      "text" : "прогноз погоды"
+    }, {
+      "text" : "расскажи о погоде"
+    }, {
+      "text" : "какая погода в"
+    }, {
+      "text" : "что с погодой в"
+    }, {
+      "text" : "о прогнозе"
+    }, {
+      "text" : "о погоде"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "~погода", "~прогноз" ],
+    "slots" : [ {
+      "name" : "Geo",
+      "entity" : "mystem.geo",
+      "required" : false,
+      "prompts" : [ ],
+      "array" : false
+    }, {
+      "name" : "Date",
+      "entity" : "duckling.date",
+      "required" : false,
+      "prompts" : [ ],
+      "array" : false
+    } ],
+    "priority" : 0
+  }, {
+    "path" : "/Отказ",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "ничего"
+    }, {
+      "text" : "не хочу"
+    }, {
+      "text" : "не надо"
+    }, {
+      "text" : "отказ"
+    }, {
+      "text" : "отказываюсь"
+    }, {
+      "text" : "не стоит"
+    }, {
+      "text" : "нет смысла"
+    }, {
+      "text" : "это не то что мне надо"
+    }, {
+      "text" : "не буду"
+    }, {
+      "text" : "отвяжись"
+    }, {
+      "text" : "уйди"
+    }, {
+      "text" : "ни как"
+    }, {
+      "text" : "ни какую"
+    }, {
+      "text" : "никак"
+    }, {
+      "text" : "никакой"
+    }, {
+      "text" : "ничего"
+    }, {
+      "text" : "ни чего"
+    }, {
+      "text" : "не чего"
+    }, {
+      "text" : "не нужен"
+    }, {
+      "text" : "ненужный"
+    }, {
+      "text" : "не нужна"
+    }, {
+      "text" : "не скажу"
+    }, {
+      "text" : "не назову"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Нет",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Нет"
+    }, {
+      "text" : "Не верно"
+    }, {
+      "text" : "другой"
+    }, {
+      "text" : "неа"
+    }, {
+      "text" : "ytn"
+    }, {
+      "text" : "ноу"
+    }, {
+      "text" : "иначе"
+    }, {
+      "text" : "не верно"
+    }, {
+      "text" : "неправильно"
+    }, {
+      "text" : "не правильно"
+    }, {
+      "text" : "неверно"
+    }, {
+      "text" : "не могу"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Да",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Да"
+    }, {
+      "text" : "Хорошо"
+    }, {
+      "text" : "Давай"
+    }, {
+      "text" : "Согласен"
+    }, {
+      "text" : "Конечно"
+    }, {
+      "text" : "ага"
+    }, {
+      "text" : "так точно"
+    }, {
+      "text" : "lf"
+    }, {
+      "text" : "дада"
+    }, {
+      "text" : "ok"
+    }, {
+      "text" : "верно"
+    }, {
+      "text" : "могу"
+    }, {
+      "text" : "смогу"
+    } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "classRule_7424",
+        "predicate" : "CONTAINS_NOT"
+      } ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  } ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "classRule_7424",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "пока" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "classRule_1246",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "еще не" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "classRule_7228",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "пока не" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "classRule_4573",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "еще не" ],
+      "value" : ""
+    } ]
+  } ],
+  "enabledSystemEntities" : [ "mystem.geo", "duckling.number", "duckling.date" ],
+  "spellerDictionary" : [ ],
+  "systemEntities" : [ {
+    "name" : "mystem.geo",
+    "enabled" : true
+  }, {
+    "name" : "mystem.persn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.obsc",
+    "enabled" : false
+  }, {
+    "name" : "mystem.patrn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.famn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.romn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.latn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.numb",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.intg",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.abbr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.name",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.surn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.patr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.geox",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.orgn",
+    "enabled" : false
+  }, {
+    "name" : "duckling.number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.ordinal",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.amount-of-money",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.distance",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.date",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.time-of-day",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.duration",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.phone-number",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.email",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.url",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.interval",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "mlps-obscene.obscene",
+    "enabled" : false
+  }, {
+    "name" : "zb.datetime",
+    "enabled" : false
+  }, {
+    "name" : "zb.number",
+    "enabled" : false
+  } ]
+}
