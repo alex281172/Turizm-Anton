@@ -90,8 +90,8 @@ theme: /Name
             go!: /Menu/Begin
         #выход из модального стейта при запросе погоды
         state: GoWeather
-             intent: /Погода
-#            q: $weather
+#             intent: /Погода
+            q: $weather
             go!: /Weather/Begin
         #другое непонятное слово - уточняем имя это или нет
         state: GetStrangeName
@@ -146,8 +146,8 @@ theme: /Menu
             go!: /Exit
         #интент Прогноз погоды    
         state: Weather
-             intent: /Погода
-#            q: $weather
+#             intent: /Погода
+            q: $weather
             go!: /Weather/Begin
         #интент Оформить заявку
         state: Tour
