@@ -4,7 +4,7 @@ theme: /Weather
     #вопрос из любого места о погоде
         # q!: * (~погода) *
         # q!: * (~прогноз) *
-        intent!: /Погода
+        # intent!: /Погода
         q: (~погода)
         #если в запросе найдена сущность Дата - сохраняем ее в сессионную переменную
         if: $parseTree.Date
@@ -45,7 +45,7 @@ theme: /Weather
             go!: /Weather/Begin
         #если отказ
         state: Deny
-            intent: /Отказ
+            # intent: /Отказ
             q: ( * (не надо)/(не хочу)/(не буду) * )
             a: Как скажете.
             go!: /Exit
@@ -64,15 +64,15 @@ theme: /Weather
             go!: /Weather/Step2        
         #ответ тупо "да" - просим назвать город, идем на начало обработки запроса
         state: Yes
-            intent: /Да
+            # intent: /Да
             q: * да *
             a: Назовите же его скорее!
             go!: /Weather/AskCity
         #ответ нет - идем смотреть прогноз по стране
         state: No
-            intent: /Нет
+            # intent: /Нет
             q: * да *
-            intent: /Незнаю
+            # intent: /Незнаю
             q: * не знаю *
             q: * не буду *
             a: Окей, смотрим прогноз в среднем по стране
@@ -98,7 +98,7 @@ theme: /Weather
             go!: /Weather/Step3
         #отказ - идем на выход
         state: Deny
-            intent: /Отказ
+            # intent: /Отказ
             q: ( * (не надо)/(не хочу)/(не буду) * )
             a: Как скажете.
             go!: /Exit
@@ -126,13 +126,13 @@ theme: /Weather
                 a: Эта дата в прошлом. Узнать какая погода была {{$temp.answerDate}} в прошлом году?
         #если да - идем запрашивать исторические данные
         state: Yes
-            intent: /Да
+            # intent: /Да
             q: * да *
             q: (* узнай/посмотри *)
             go!: /Weather/HistoryStep4
         #если нет - очистили дату и идем снова спрашивать дату
         state: No
-            intent: /Нет
+            # intent: /Нет
             q: * нет *
             q: (* другая/другую [~дата] *)
             script: delete $session.date
@@ -216,13 +216,13 @@ theme: /Weather
             go!: /Weather/Step3
         #ответ нет - идем на шаг6 погоды
         state: NoSure
-            intent: /Нет
+            # intent: /Нет
             q: * нет *
             q: * не планир* *
             go!: /Weather/Step6
         #если да - предлагаем оформить заявку (или продолжить её оформление)
         state: YesSure
-            intent: /Да
+            # intent: /Да
             q: * да *
             q: планирую *
             if: $session.tripStep
@@ -235,17 +235,17 @@ theme: /Weather
                     
             #если да - идем в раздел Заявка
             state: Yes
-                intent: /Да
+                # intent: /Да
                 q: * да *
-                intent: /Тур
+                # intent: /Тур
                 q: (* (~заявка)/(~тур) *)
                 q: * продолж*
                 go!: /Trip/Begin
             #если нет - идем на шаг6 погоды    
             state: Deny
-                intent: /Нет
+                # intent: /Нет
                 q: * нет *
-                intent: /Отказ
+                # intent: /Отказ
                 q: ( * (не надо)/(не хочу)/(не буду) * )
                 go!: /Weather/Step6        
                     
@@ -258,7 +258,7 @@ theme: /Weather
         state: ChangePlaceDate
             q: * ~другой [~место] *
             q: * ~другой ~дата *
-            intent: /Да
+            # intent: /Да
             q: * да *
             script: 
                 delete $session.place, 
@@ -267,9 +267,9 @@ theme: /Weather
             go!: /Weather/Begin     
         #не нужен прогноз - идем на выход
         state: Deny
-            intent: /Нет
+            # intent: /Нет
             q: * нет *
-            intent: /Отказ
+            # intent: /Отказ
             q: ( * (не надо)/(не хочу)/(не буду) * )
             a: Как скажете!
             go!: /Exit
