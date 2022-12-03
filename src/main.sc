@@ -4,15 +4,15 @@ require: requirements.sc
 init:
 #задаем правило обработки интентов и паттернов
 # ВРЕМЕННО ОТКЛЮЧЕНО ИЗ-ЗА БАГА У JAICP
-    #  bind("selectNLUResult", function($context) {
+      bind("selectNLUResult", function($context) {
     # #     //если есть совпадение по интенту - используем интент
-    #      if ($context.nluResults.intents.length > 0) {
-    #          $context.nluResults.selected = $context.nluResults.intents[0];
-    #          return;
-    #      }
+          if ($context.nluResults.intents.length > 0) {
+              $context.nluResults.selected = $context.nluResults.intents[0];
+              return;
+          }
     # #     //если нет совпадений по интенту - используем паттерн
-    #      if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
-    #  });
+          if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
+      });
 
 #========================================= СТАРТ И ГЛОБАЛЬНЫЕ ИНТЕНТЫ ==================================================
 theme: /  
