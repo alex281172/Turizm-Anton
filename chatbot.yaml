@@ -7,7 +7,7 @@ botEngine: v2
 language: ru
 #запускаемые тесты:
 tests:
-    include:
+    exclude:
         - test.xml
 #пороговые значения классификаторов
 sts:
