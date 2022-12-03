@@ -88,7 +88,7 @@ function email () {
     var answer = {}    
     answer = $mail.send({
         from: "jaicp_mfti@mail.ru",
-        to: ["katalana@mail.ru"],
+        to: ["jaicp_mfti@mail.ru"],
         subject: subject,
         content: form,
         smtpHost: "smtp.mail.ru",
