@@ -19,7 +19,7 @@ theme: /
 
     #старт диалога с интентов start и приветствия
     state: Welcome
-        q!: *start                              
+        q!: (*start/старт)
         q!: * Мария *
         # intent: /Приветствие
         q!: $greeting

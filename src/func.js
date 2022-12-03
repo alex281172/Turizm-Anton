@@ -87,14 +87,14 @@ function email () {
             
     var answer = {}    
     answer = $mail.send({
-        from: "katalana@mail.ru",
+        from: "jaicp_mfti@mail.ru",
         to: ["katalana@mail.ru"],
         subject: subject,
         content: form,
         smtpHost: "smtp.mail.ru",
         smtpPort: "465",
-        user: "katalana@mail.ru",
-        password: "****************"
+        user: "jaicp_mfti@mail.ru",
+        password: "eaxhXE3gXmc1eKnyYGYg"
     });
     return (answer);
 }
