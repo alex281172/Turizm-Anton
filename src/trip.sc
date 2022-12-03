@@ -172,9 +172,9 @@ theme: /Trip
             "21-29 дней"
             "Свыше месяца"
             "Еще не знаю"
-        #подойдет любой ответ - записали его
-        state: Answer
-            q: *
+        #подойдет любой ответ - записали его и идем на Шаг5 заявки
+        state: NoMatch
+            event: noMatch
             script: $session.duration = $request.query;
             go!: /Trip/Step5
 
@@ -193,11 +193,11 @@ theme: /Trip
         state: Children
             a: Сколько из них детей младше 14 лет?
             #подойдет любой ответ - записали его и идем на Шаг6 заявки
-            state: Answer
-                q: *
+            state: NoMatch
+                event: noMatch
                 script: $session.children = $request.query;
                 go!: /Trip/Step6
-        # если любой другой ответ - записали его как есть и идем на Шаг6 заявки
+        # если любой другой ответ из корня Step5 - записали его как есть и идем на Шаг6 заявки
         state: Answer
             event: noMatch || fromState = "/Trip/Step5", onlyThisState = true
             script: $session.people = $request.query;
@@ -214,9 +214,9 @@ theme: /Trip
             "$1500-$3000"
             "свыше $3000"
             "Еще не знаю"
-        #подойдет любой ответ - записали его
-        state: Answer
-            q: *
+        #подойдет любой ответ - записали его и идем на Шаг7 заявки
+        state: NoMatch
+            event: noMatch
             script: $session.budget = $request.query;
             go!: /Trip/Step7
 
@@ -230,9 +230,9 @@ theme: /Trip
             "4*"        
             "5*"
             "Еще не знаю"
-        #подойдет любой ответ - записали его
-        state: Answer
-            q: *
+        #подойдет любой ответ - записали его и идем на Шаг8 заявки
+        state: NoMatch
+            event: noMatch
             script: $session.stars = $request.query;
             go!: /Trip/Step8
 
@@ -240,9 +240,9 @@ theme: /Trip
     state: Step8 
         script: $session.tripStep = "/Trip/Step8"
         a: Что-то еще передать менеджеру? Может, какие-то пожелания?
-        #подойдет любой ответ - записали его
-        state: Answer
-            q: *
+        #подойдет любой ответ - записали его и идем формировать почту
+        state: NoMatch
+            event: noMatch
             script: $session.comment = $request.query;
             go!: /SendMail/Mail
 

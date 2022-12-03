@@ -3,25 +3,26 @@ require: requirements.sc
 
 init:
 #задаем правило обработки интентов и паттернов
-     bind("selectNLUResult", function($context) {
-    #     //если есть совпадение по интенту - используем интент
-         if ($context.nluResults.intents.length > 0) {
-             $context.nluResults.selected = $context.nluResults.intents[0];
-             return;
-         }
-    #     //если нет совпадений по интенту - используем паттерн
-         if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
-     });
+# ВРЕМЕННО ОТКЛЮЧЕНО ИЗ-ЗА БАГА У JAICP
+    #  bind("selectNLUResult", function($context) {
+    # #     //если есть совпадение по интенту - используем интент
+    #      if ($context.nluResults.intents.length > 0) {
+    #          $context.nluResults.selected = $context.nluResults.intents[0];
+    #          return;
+    #      }
+    # #     //если нет совпадений по интенту - используем паттерн
+    #      if ($context.nluResults.patterns.length > 0) $context.nluResults.selected = $context.nluResults.patterns[0]
+    #  });
 
 #========================================= СТАРТ И ГЛОБАЛЬНЫЕ ИНТЕНТЫ ==================================================
 theme: /  
 
     #старт диалога с интентов start и приветствия
     state: Welcome
-        q!: *start                                  
+        q!: *start                              
         q!: * Мария *
         # intent: /Приветствие
-        q: $greeting
+        q!: $greeting
         script: $session = {}      //обнулили переменные сессии
         #проверяем есть ли имя клиента, представляемся соотв.образом и идем в Меню или Имя
         if: $client.name
