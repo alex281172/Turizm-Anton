@@ -261,9 +261,8 @@ theme: /Weather
         state: ChangePlaceDate
             q: * ~другой [~место] *
             q: * ~другой ~дата *
-            # intent: /Да
             q: $yes
-            script: 
+            script:
                 delete $session.place, 
                 delete $session.coordinates, 
                 delete $session.date
