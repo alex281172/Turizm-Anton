@@ -15,6 +15,9 @@ function getWeather(lat, lon, day) {
 	var response = $http.get("https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&lang=${lang}&key=${key}&days=16", {
             timeout: 10000,
             query:{
+                // новый ключ
+                // key: "c31a720db0464fbb8ff87abd57a16a0b",
+                // старый ключ
                 key: "0ee3493daca046aea3dbe81b076f4083",
                 lang: "ru",
                 lat: lat,

@@ -33,23 +33,35 @@
       "text" : "погода в"
     } ],
     "classificationRules" : {
-      "refs" : [ ]
+      "refs" : [ {
+        "entityName" : "classRule_7573",
+        "predicate" : "CONTAINS_NOT"
+      } ]
     },
     "patterns" : [ "~прогноз", "~погода" ],
-    "slots" : [ {
-      "name" : "Geo",
-      "entity" : "mystem.geo",
-      "required" : false,
-      "prompts" : [ ]
-    }, {
-      "name" : "Date",
-      "entity" : "duckling.date",
-      "required" : false,
-      "prompts" : [ ]
-    } ],
+    "slots" : [ ],
     "priority" : 0
   } ],
-  "entities" : [ ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "classRule_7573",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "не нужен", "не хочу" ],
+      "value" : ""
+    } ]
+  } ],
   "enabledSystemEntities" : [ "mystem.geo", "duckling.number", "duckling.date" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
